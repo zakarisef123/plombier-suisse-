@@ -8,10 +8,10 @@
 <!--
   A COMPLETER AVANT MISE EN LIGNE :
   - Nom de domaine réel (swiss-hydro-services.ch est un espace réservé)
-  - Adresse email de réception des formulaires (actuellement contact@swiss-hydro-services.ch, à confirmer)
+  - Adresse email de réception des formulaires : configurée (FormSubmit)
   - Adresse postale exacte (rue, NPA) si vous souhaitez l'afficher
   - Numéro IDE / mentions légales
-  - Logo et image de la section hero : encore repris de plombiervaudois.ch à titre provisoire (les photos de services et des villes sont vos propres visuels)
+  - Image de partage réseaux sociaux (og:image) : encore reprise de plombiervaudois.ch à titre provisoire (logo, photo du hero, photos de services, villes et assurances sont vos propres visuels)
 -->
 
 <title>Swiss Hydro Services | Urgence plomberie 24h/24 - 7j/7 - Canton de Vaud</title>
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.plombiervaudois.ch/wp-content/uploads/2021/05/plumber-in-uniform-at-showcase-in-plumbering-store-1024x684.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" type="image/png" href="https://www.plombiervaudois.ch/wp-content/uploads/2021/05/cropped-cropped-White-logo.png">
+<link rel="icon" type="image/png" href="favicon-swiss-hydro-services.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +102,7 @@ a{color:inherit;}
 header.site-head{position:sticky; top:0; z-index:400; background:rgba(245,248,251,.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
 .head-row{display:flex; align-items:center; justify-content:space-between; gap:1rem; height:76px;}
 .brand{display:flex; align-items:center; gap:.7rem; text-decoration:none; min-width:0;}
-.brand-mark{flex-shrink:0; height:44px; display:flex; align-items:center; justify-content:center;}
+.brand-mark{flex-shrink:0; height:56px; display:flex; align-items:center; justify-content:center;}
 .brand-mark img{height:100%; width:auto; display:block;}
 .brand-text{line-height:1.15; min-width:0;}
 .brand-text strong{display:block; font-family:"Fraunces",serif; font-size:1.02rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
@@ -128,8 +128,13 @@ nav.main-nav a:hover{color:var(--brand);}
 .mnav-call{display:flex !important; align-items:center; gap:.7rem; margin-top:1.2rem; background:var(--urgent); border-radius:16px; padding:1rem 1.1rem !important; border-bottom:none !important;}
 
 /* ===== HERO ===== */
-.hero{padding:3rem 0 4rem; background:linear-gradient(180deg,var(--paper) 0%,var(--paper-alt) 100%);}
+.hero{position:relative; overflow:hidden; padding:4rem 0; min-height:600px; display:flex; align-items:center;}
+.hero-fullbg{position:absolute; inset:0; z-index:0;}
+.hero-fullbg img{width:100%; height:100%; object-fit:cover;}
+.hero-fullbg::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(245,248,251,.55) 0%, rgba(245,248,251,.18) 42%, rgba(19,36,54,.12) 100%);}
+.hero > .container{position:relative; z-index:1;}
 .hero-grid{display:grid; gap:2.5rem; align-items:center;}
+.hero-copy-card{background:rgba(255,255,255,.88); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-radius:var(--radius-lg); padding:2.4rem; box-shadow:var(--shadow);}
 .badge-line{display:inline-flex; align-items:center; gap:.5rem; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--brand-dark); background:#fff; border:1px solid var(--line); padding:.5rem 1rem; border-radius:100px; margin-bottom:1.2rem;}
 .badge-line .dot{width:8px; height:8px; border-radius:50%; background:#2fbf6f; box-shadow:0 0 0 4px rgba(47,191,111,.2);}
 .hero h1{font-size:clamp(2.1rem,5vw,3.2rem); font-weight:600; line-height:1.08; margin:0 0 1.1rem;}
@@ -140,12 +145,12 @@ nav.main-nav a:hover{color:var(--brand);}
 .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 26px rgba(224,89,43,.4);}
 .btn-ghost{display:inline-flex; align-items:center; gap:.5rem; padding:1rem 1.6rem; border-radius:100px; text-decoration:none; font-weight:700; font-size:.98rem; color:var(--ink); border:1.5px solid var(--line); background:#fff; transition:border-color .15s, transform .15s;}
 .btn-ghost:hover{border-color:var(--brand); transform:translateY(-2px);}
-.hero-visual{position:relative;}
-.ring{border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); aspect-ratio:4/3;}
-.ring img{width:100%; height:100%; object-fit:cover;}
-.chip{position:absolute; left:-1rem; bottom:-1rem; background:#fff; border-radius:var(--radius-md); padding:1rem 1.3rem; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.15rem;}
-.chip strong{font-family:"Fraunces",serif; font-size:1.05rem;}
-.chip span{font-size:.8rem; color:var(--slate);}
+.hero-visual{position:relative; display:flex; justify-content:center; padding-bottom:1.6rem;}
+.hero-photo-circle{width:100%; max-width:380px; aspect-ratio:1/1; border-radius:50%; overflow:hidden; box-shadow:var(--shadow); border:6px solid rgba(255,255,255,.75);}
+.hero-photo-circle img{width:100%; height:100%; object-fit:cover;}
+.chip{position:absolute; left:6%; bottom:0; z-index:2; background:var(--ink); color:#fff; border-radius:var(--radius-md); padding:1rem 1.3rem; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.15rem;}
+.chip strong{font-family:"Fraunces",serif; font-size:1.05rem; color:var(--brand-light);}
+.chip span{font-size:.72rem; color:#c3d3e0; text-transform:uppercase; letter-spacing:.06em;}
 @media (min-width:860px){ .hero-grid{grid-template-columns:1.05fr .95fr;} }
 
 /* ===== TRUST MARQUEE ===== */
@@ -161,8 +166,9 @@ nav.main-nav a:hover{color:var(--brand);}
 .insurance-head{max-width:640px; margin:0 auto 1.6rem; text-align:center;}
 .insurance-head h2{font-size:clamp(1.3rem,2.6vw,1.7rem); font-weight:600; margin:0 0 .6rem;}
 .insurance-head p{color:var(--slate); margin:0; font-size:.95rem;}
-.insurance-list{display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem .8rem; max-width:760px; margin:0 auto;}
-.insurance-tag{font-size:.84rem; font-weight:600; color:var(--slate-dark); background:var(--paper-alt); border:1px solid var(--line); padding:.5rem 1rem; border-radius:100px;}
+.insurance-logos{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:1rem; max-width:860px; margin:0 auto;}
+.insurance-logo{display:flex; align-items:center; justify-content:center; height:64px; width:120px; padding:.6rem; border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff; overflow:hidden;}
+.insurance-logo img{max-height:100%; max-width:100%; width:auto; height:auto; object-fit:contain;}
 
 /* ===== STEPS ===== */
 .steps-section{padding:5rem 0;}
@@ -315,7 +321,7 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
   <div class="container head-row">
     <a href="#accueil" class="brand">
       <span class="brand-mark" aria-hidden="true">
-        <img src="https://www.plombiervaudois.ch/wp-content/uploads/2021/05/logo-plombier-vaudois-300x188.png" alt="" loading="eager">
+        <img src="logo-swiss-hydro-services.png" alt="" loading="eager">
       </span>
       <span class="brand-text">
         <strong>Swiss Hydro Services</strong>
@@ -362,8 +368,11 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
 
 <main id="main">
   <section id="accueil" class="hero">
+    <div class="hero-fullbg" aria-hidden="true">
+      <img src="Lausanne.jpg" alt="" loading="eager">
+    </div>
     <div class="container hero-grid">
-      <div class="hero-copy">
+      <div class="hero-copy-card">
         <span class="badge-line"><span class="dot" aria-hidden="true"></span>Dépannage 24h/24 · 7j/7 · Canton de Vaud</span>
         <h1>Un plombier de confiance, <em>disponible quand il le faut</em></h1>
         <p class="lead">Fuite d'eau, WC bouché, chauffe-eau en panne ? Swiss Hydro Services intervient à Lausanne et dans tout le canton de Vaud. Devis gratuit avant intervention, dépannage express en 30 minutes ou sur rendez-vous.</p>
@@ -376,7 +385,7 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
         </div>
       </div>
       <div class="hero-visual">
-        <div class="ring">
+        <div class="hero-photo-circle">
           <img src="https://www.plombiervaudois.ch/wp-content/uploads/2021/05/plumber-in-uniform-at-showcase-in-plumbering-store-1024x684.jpg" alt="Plombier de Swiss Hydro Services en intervention dans le canton de Vaud" loading="eager">
         </div>
         <div class="chip"><strong>Sur place</strong><span>Devis gratuit avant intervention</span></div>
@@ -410,15 +419,15 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
         <h2>Une facture reconnue par votre assureur</h2>
         <p>En cas de sinistre (dégât des eaux, fuite, rupture de canalisation...), la facture détaillée remise après intervention est acceptée par les principales compagnies d'assurance habitation.</p>
       </div>
-      <div class="insurance-list">
-        <span class="insurance-tag">AXA</span>
-        <span class="insurance-tag">Zurich</span>
-        <span class="insurance-tag">Allianz</span>
-        <span class="insurance-tag">La Mobilière</span>
-        <span class="insurance-tag">Helvetia</span>
-        <span class="insurance-tag">Generali</span>
-        <span class="insurance-tag">Baloise</span>
-        <span class="insurance-tag">Vaudoise Assurances</span>
+      <div class="insurance-logos">
+        <span class="insurance-logo"><img src="AXA%20Logo.jpg" alt="AXA" loading="lazy"></span>
+        <span class="insurance-logo"><img src="Zurich.jpg" alt="Zurich" loading="lazy"></span>
+        <span class="insurance-logo"><img src="Allianz.jpg" alt="Allianz" loading="lazy"></span>
+        <span class="insurance-logo"><img src="la%20mobiliere.png" alt="La Mobilière" loading="lazy"></span>
+        <span class="insurance-logo"><img src="Helvetia.jpg" alt="Helvetia" loading="lazy"></span>
+        <span class="insurance-logo"><img src="Generali.jpg" alt="Generali" loading="lazy"></span>
+        <span class="insurance-logo"><img src="Baloise.jpg" alt="Baloise" loading="lazy"></span>
+        <span class="insurance-logo"><img src="Vaudoise.webp" alt="Vaudoise Assurances" loading="lazy"></span>
       </div>
     </div>
   </section>
@@ -651,7 +660,7 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>Entreprise assurée</li>
           </ul>
         </aside>
-        <form class="form-card" action="https://formsubmit.co/contact@swiss-hydro-services.ch" method="POST">
+        <form class="form-card" action="https://formsubmit.co/Etsgilles42@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle demande - Swiss Hydro Services">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -699,8 +708,8 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <span class="brand-mark" aria-hidden="true" style="height:40px;">
-            <img src="https://www.plombiervaudois.ch/wp-content/uploads/2021/05/White-logo-300x188.png" alt="">
+          <span class="brand-mark" aria-hidden="true" style="height:56px;">
+            <img src="logo-swiss-hydro-services.png" alt="">
           </span>
           <strong>Swiss Hydro Services</strong>
         </div>
@@ -762,7 +771,7 @@ body.cmp-active .float-call, body.cmp-active .sticky-cta{z-index:440;}
     </button>
     <span class="modal-badge" id="quote-service-label">Intervention</span>
     <h2 style="margin:0 0 1.2rem;">Demander un devis</h2>
-    <form action="https://formsubmit.co/contact@swiss-hydro-services.ch" method="POST">
+    <form action="https://formsubmit.co/Etsgilles42@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Devis service - Swiss Hydro Services">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
